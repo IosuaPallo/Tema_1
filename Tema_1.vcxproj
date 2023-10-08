@@ -131,6 +131,7 @@
     <ClCompile Include="source.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include=".gitignore" />
     <None Include="date.in" />
     <None Include="date.out" />
   </ItemGroup>

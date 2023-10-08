@@ -70,13 +70,13 @@ void extremeLeft(map<string, vector<string>>& grammar, vector<string>& nonTermin
 	string result;
 	bool sem = false;
 	cout << "Extrem stanga \n";
-	for (int i = 0; i < 20;i++) {
+	while (result !="a*(a+a)") {
 		result.clear();
 		result = startSymbol;
 		vector<int> position(nonTerminals.size(), -1);
 		bool sem = 0;
 		while (result.length() < 80 && sem==0 ) {
-			int min = nonTerminals.size()+1; 
+			int min = result.size()+1; 
 			string key;
 			for (int k = 0; k < nonTerminals.size(); k++) {
 				position[k] = result.find(nonTerminals[k]);
@@ -85,7 +85,7 @@ void extremeLeft(map<string, vector<string>>& grammar, vector<string>& nonTermin
 					key = nonTerminals[k]; 
 				}
 			}
-			if (min != nonTerminals.size() + 1) {
+			if (min != result.size() + 1) {
 				vector<string> values = grammar[key];
 				int random = rand() % values.size();
 				string replacement = values[random];
