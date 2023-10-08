@@ -19,11 +19,6 @@ void citire(map<string, vector<string>>& grammar, vector<string>& nonTerminals, 
 string replaceString(int position, string result, string key, string replacement);
 void extremeLeft(map<string, vector<string>>& grammar, vector<string>& nonTerminals, vector<string>& terminals, string& startSymbol);
 
-void scriere() {
-	ofstream fout("date.out");
-
-	fout.close(); 
-}
 
 int main() {
 	srand(time(0)); 
@@ -66,7 +61,7 @@ void citire(map<string, vector<string>>& grammar, vector<string>& nonTerminals, 
 
 
 void extremeLeft(map<string, vector<string>>& grammar, vector<string>& nonTerminals, vector<string>& terminals, string& startSymbol) {
-	vector<string> results;
+	ofstream fout("date.out"); 
 	string result;
 	bool sem = false;
 	cout << "Extrem stanga \n";
@@ -96,11 +91,9 @@ void extremeLeft(map<string, vector<string>>& grammar, vector<string>& nonTermin
 				sem = 1; 
 			}
 		}
-		results.push_back(result);
+		fout << result << "\n"; 
 	}
-	for (string str : results) {
-		cout << str << "\n"; 
-	}
+	fout.close();
 }
 
 string replaceString(int position, string result, string key, string replacement) {
